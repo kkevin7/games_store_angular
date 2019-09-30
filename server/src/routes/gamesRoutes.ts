@@ -10,7 +10,11 @@ class GamesRoutes {
 
    config(): void{
        // add routes in an easy way because only have to call the methods
-       this.router.get('/', gamesController.index );
+       this.router.get('/', gamesController.findAll );
+       this.router.get('/:id', gamesController.findById);
+       this.router.post('/', gamesController.create);
+       this.router.delete('/:id', gamesController.delete)
+       this.router.put('/:id', gamesController.update )
    }
 }
 
