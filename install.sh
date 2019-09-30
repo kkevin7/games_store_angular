@@ -7,3 +7,5 @@ npm i nodemon -D
 npm i  @types/express -D
 #Install the moduludes fro typescript so that can reconize in the server
 npm i @types/morgan @types/cors -D
+#Downgrade de la version de mysql-promise
+npm i promise-mysql@3.3.1 
