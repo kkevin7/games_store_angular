@@ -9,3 +9,7 @@ npm i  @types/express -D
 npm i @types/morgan @types/cors -D
 #Downgrade de la version de mysql-promise
 npm i promise-mysql@3.3.1 
+#Install the command to use angular in the project
+npm install -g @angular/cli
+#Create angular project
+ng new client
