@@ -1,4 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import {Router} from '@angular/router'
+
 import { Game } from 'src/app/models/Game';
 import {GamesService} from '../../services/games.service';
 
@@ -20,7 +22,7 @@ export class GameFormComponent implements OnInit {
     created_at: new Date()
   };
 
-  constructor(private gamesService: GamesService) { }
+  constructor(private gamesService: GamesService, private route: Router) { }
 
   ngOnInit() {
   }
@@ -34,6 +36,7 @@ export class GameFormComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        this.route.navigate(['/games']);
       },
       err => console.error(err)
     )
