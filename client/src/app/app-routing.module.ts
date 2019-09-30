@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+/** Imports the components */
 import { GameListComponent } from './components/game-list/game-list.component';
+import { GameFormComponent } from './components/game-form/game-form.component';
 
 const routes: Routes = [
   {
@@ -11,6 +14,10 @@ const routes: Routes = [
   {
     path: 'games',
     component: GameListComponent
+  },
+  {
+    path: 'games/add',
+    component: GameFormComponent
   }
 ];
 

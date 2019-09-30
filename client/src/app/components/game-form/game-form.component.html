@@ -1,1 +1,21 @@
-<p>game-form works!</p>
+<div class="col-md-4 offset-md-4">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" class="form-control" name="title" [(ngModel)]="game.title" placeholder="Title" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for=""></label>
+                    <textarea class="form-control" name="description" [(ngModel)]="game.description" placeholder="Description" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="url" class="form-control" name="image" [(ngModel)]="game.image" placeholder="Image">
+                </div>
+                <button type="button" class="btn btn-success btn-block" (click)="saveNewGame()">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
