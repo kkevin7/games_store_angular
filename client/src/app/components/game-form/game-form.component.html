@@ -19,3 +19,12 @@
         </div>
     </div>
 </div>
+
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <img [src]="game.image == '' ? './assets/img/no-image.png' : game.image" class="card-img-top">
+        <h3>{{game.id}}. {{game.title == '' ? 'Game Title' : game.title}}</h3>
+        <p>{{game.description == '' ? 'Write your description' : game.description}}</p>
+        <p>{{game.created_at | date: 'yyyy-mm-dd'}}</p>
+    </div>
+</div>
