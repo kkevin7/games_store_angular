@@ -39,4 +39,8 @@ export class GameListComponent implements OnInit {
     console.log(id);
   }
 
+  editGame(id: string){
+    console.log(id);
+  }
+
 }

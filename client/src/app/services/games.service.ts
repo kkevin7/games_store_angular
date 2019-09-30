@@ -26,7 +26,7 @@ export class GamesService {
     return this.http.delete(`${this.API_URI}/games/${id}`);
   }
 
-  updateGame(id: string, updateGame: Game): Observable<Game>{
+  updateGame(id: string|number, updateGame: Game): Observable<Game>{
     return this.http.put(`${this.API_URI}/games/${id}`, updateGame );
   }
 

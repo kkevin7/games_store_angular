@@ -1,5 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import {Router} from '@angular/router'
+import {Router, ActivatedRoute} from '@angular/router'
 
 import { Game } from 'src/app/models/Game';
 import {GamesService} from '../../services/games.service';
@@ -22,13 +22,27 @@ export class GameFormComponent implements OnInit {
     created_at: new Date()
   };
 
-  constructor(private gamesService: GamesService, private route: Router) { }
+  edit: boolean = false;
+
+  constructor(private gamesService: GamesService, private route: Router, private activeRouete: ActivatedRoute) { }
 
   ngOnInit() {
+    const params = this.activeRouete.snapshot.params;
+    if(params.id){
+      this.gamesService.getGame(params.id).subscribe(
+        res => {
+          console.log(res)
+          this.game = res;
+          this.edit = true;
+        },
+        err => console.error(err)
+      );
+    }
+    console.log(params);
   }
 
   saveNewGame(){
-    // delete the variables of the entity class game
+    // delete the variables of the entity game
     delete this.game.created_at;
     delete this.game.id;
 
@@ -40,6 +54,19 @@ export class GameFormComponent implements OnInit {
       },
       err => console.error(err)
     )
+  }
+
+  updateGame(){
+    //delete the varaible from the entity game
+    delete this.game.created_at;
+    this.gamesService.updateGame(this.game.id, this.game).subscribe(
+      res => {
+        console.log(res);
+        this.route.navigate(['/games']);
+      },
+      err => console.log(err)
+    );
+
   }
 
 }
